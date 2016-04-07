@@ -6,7 +6,7 @@ module.exports.Secondary = Secondary;
 
 var PrimarySchema = new Schema({
   type: String,
-  contents: [Secondary],
+  contents: [Secondary.schema],
   full: Boolean,
   packed: Boolean
 });

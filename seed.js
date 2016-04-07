@@ -1,13 +1,5 @@
 var db = require("./models");
 
-var primaryObject = [];
-primaryObject.push({
-  type: "Backpack",
-  contents: itemList,
-  full: false,
-  packed: false
-});
-
 var itemList = [];
 itemList.push({
   item: 'laptop',
@@ -29,6 +21,16 @@ itemList.push({
   important: false,
   packed: false
 });
+
+
+var primaryObject = [];
+  primaryObject.push({
+    type: "Backpack",
+    contents: itemList,
+    full: false,
+    packed: false
+  });
+
 
 
 
