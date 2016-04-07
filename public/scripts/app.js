@@ -27,9 +27,9 @@ function sanitySuccess(success) {
   var allPrimaries = success;
   // traverse all of my db entries and append each entry's favorite color to my #colorAnswer div
   allPrimaries.forEach( function appendToHtml(onePrimary) {
-    var faveColor = onePrimary.contents
-    $('#colorAnswer').append('<h1>' + faveColor + '</h1>')
-  })
+    var faveColor = onePrimary.contents;
+    $('#colorAnswer').append('<h1>' + faveColor + '</h1>');
+  });
 }
 
 

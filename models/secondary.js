@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 
-var Secondary = new Schema({
+var SecondarySchema = new Schema({
      item: String,
      packed: Boolean,
      inportant: Boolean
