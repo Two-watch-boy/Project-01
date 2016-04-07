@@ -1,11 +1,37 @@
 var db = require("./models");
 
-var primaryObject = {
+var primaryObject = [];
+primaryObject.push({
   type: "Backpack",
-  contents: ["laptop ", "charger ", "snacks "],
+  contents: itemList,
   full: false,
   packed: false
-};
+});
+
+var itemList = [];
+itemList.push({
+  item: 'laptop',
+  important: true,
+  packed: true
+});
+itemList.push({
+  item: 'laptop charger',
+  important: true,
+  packed: false
+});
+itemList.push({
+  item: 'toothbrush',
+  important: false,
+  packed: true
+});
+itemList.push({
+  item: 'snacks',
+  important: false,
+  packed: false
+});
+
+
+
 
 db.Primary.remove({}, function(err, deletedPrimaries){
 

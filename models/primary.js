@@ -1,9 +1,12 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
+var Secondary = require('./secondary');
+module.exports.Secondary = Secondary;
+
 var PrimarySchema = new Schema({
   type: String,
-  contents: [String],
+  contents: [Secondary],
   full: Boolean,
   packed: Boolean
 });
