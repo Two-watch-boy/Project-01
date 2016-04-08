@@ -32,13 +32,13 @@ app.get('/elephant', function homepage(req, res) {
 /*
  * API ENDPOINTS
  */
-/* GET ALL Primary DB Entries */
-app.get('/api/primary', function sanity(req, res) {
+/* GET ALL Bag DB Entries */
+app.get('/api/bag', function sanity(req, res) {
 
-  database.Primary.find( {}, function getAllPrimaries(err, allPrimaries){
+  database.Bag.find( {}, function getAllBags(err, allBags){
     if (err) { return console.log('ERROR', err); }
 
-    res.json(allPrimaries);
+    res.json(allBags);
   });
 
 });

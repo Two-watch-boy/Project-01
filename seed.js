@@ -1,46 +1,70 @@
 var db = require("./models");
 
-var itemList = [];
-itemList.push({
+var itemList0 = [];
+itemList0.push({
   item: 'laptop',
-  important: true,
-  packed: true
+  packed: true,
+  important: true
 });
-itemList.push({
+itemList0.push({
   item: 'laptop charger',
-  important: true,
+  packed: false,
+  important: true
+});
+itemList0.push({
+  item: 'toothbrush',
+  packed: true,
+  important: false
+});
+itemList0.push({
+  item: 'snacks',
+  packed: false,
+  important: false
+});
+
+var itemList1 = [];
+itemList1.push({
+  item: 'taser',
+  packed: true,
+  important: true
+});
+itemList1.push({
+  item: 'wallet',
+  packed: true,
+  important: true
+});
+itemList1.push({
+  item: 'M&Ms',
+  packed: true,
+  important: true
+});
+
+
+
+var bagObject = [];
+bagObject.push({
+  type: "Backpack",
+  contents: itemList0,
+  full: false,
   packed: false
 });
-itemList.push({
-  item: 'toothbrush',
-  important: false,
+bagObject.push({
+  type: "purse",
+  contents: itemList1,
+  full: true,
   packed: true
 });
-itemList.push({
-  item: 'snacks',
-  important: false,
-  packed: false
-});
-
-
-var primaryObject = [];
-  primaryObject.push({
-    type: "Backpack",
-    contents: itemList,
-    full: false,
-    packed: false
-  });
 
 
 
 
 
-db.Primary.remove({}, function(err, deletedPrimaries){
+db.Bag.remove({}, function(err, deletedBagss){
 
-  db.Primary.create( primaryObject, function(err, successfulPrimary){
+  db.Bag.create( bagObject, function(err, successfulBag){
     if (err) { return console.log('ERROR', err); }
 
-    console.log("success! Here's the actual DB Entry: ", successfulPrimary);
+    console.log("success! Here's the actual DB Entry: ", successfulBag);
     process.exit();
   });
   console.log("Everything removed!");
