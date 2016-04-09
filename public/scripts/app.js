@@ -62,7 +62,7 @@ $(document).ready(function() {
     $.ajax({
       method: "POST",
       url: "api/bag",
-      data: test
+      data: {type: test}
     });
 
     return false;

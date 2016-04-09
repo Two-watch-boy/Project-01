@@ -1,13 +1,18 @@
 // SERVER-SIDE JAVASCRIPT
 
 var express = require('express'),
-    database = require('./models'),
+    bodyParser = require("body-parser"),
+    db = require('./models'),
     app = express();
-
 
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
 
 /**********
  * ROUTES *
@@ -21,11 +26,10 @@ app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-app.get('/elephant', function homepage(req, res) {
-  console.log(__dirname);
-  res.sendFile(__dirname + '/views/elephant.html');
-});
-
+// app.get('/elephant', function homepage(req, res) {
+//   console.log(__dirname);
+//   res.sendFile(__dirname + '/views/elephant.html');
+// });
 
 // TODO: Make 'api/sanity' endpoint!
 
@@ -35,7 +39,7 @@ app.get('/elephant', function homepage(req, res) {
 /* GET ALL Bag DB Entries */
 app.get('/api/bag', function sanity(req, res) {
 
-  database.Bag.find( {}, function getAllBags(err, allBags){
+  db.Bag.find( {}, function getAllBags(err, allBags){
     if (err) { return console.log('ERROR', err); }
 
     res.json(allBags);
@@ -43,6 +47,16 @@ app.get('/api/bag', function sanity(req, res) {
 
 });
 
+app.post('/api/bag', function(req, res){
+  console.log("BODY STUFF:::::::::::::::::::::::", req.body);
+  res.send();
+
+  db.Bag.create(req.body, function(err, bag) {
+    if (err) { console.log('error', err); }
+    console.log(bag);
+    res.json(bag);
+  });
+});
 
 
 
