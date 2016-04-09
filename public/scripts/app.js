@@ -5,6 +5,11 @@
 */
 
 $(document).ready(function() {
+
+  $('#myModal').on('shown.bs.modal', function () {
+    console.log("modallll");
+    $('#myInput').focus();
+});
   // make an ajax call to my server
   // $('#bagquery').on('click', function clickHandler(){
     $.ajax({
@@ -19,7 +24,7 @@ $(document).ready(function() {
   var i = 0;
   var o = 0;
   function bagsSuccess(json) {
-    $('#meow').on('mousedown', function(){
+    $('.addBag').on('mousedown', function(){
       console.log("clicked for bag", json,i, o);
       $('.bag0').append('<div class="col-sm-offset-3 col-sm-6 box">' +
         '<img class="glyph"src="/images/glyphicons-342-briefcase.png">' +
@@ -58,14 +63,15 @@ $(document).ready(function() {
     var nameBag = $('#bagName').val();
     var fullBag = $('#bagFull').is(':checked');
     var packedBag = $('#bagPacked').is(':checked');
-    console.log("look ma! i've got a " + nameBag + " thats " + fullBag + " and "+ packedBag);
+    var bagConts = $('.itemName').val();
+    console.log("look ma! i've got a " + nameBag + " thats " + fullBag + " and "+ packedBag + " with " + contents);
     $("input").val("");
     $('input:checkbox').removeAttr('checked');
 
     $.ajax({
       method: "POST",
       url: "api/bag",
-      data: {type: nameBag, full: fullBag, packed: packedBag}
+      data: {type: nameBag, contents: [bagConts], full: fullBag, packed: packedBag}
     });
 
     return false;
