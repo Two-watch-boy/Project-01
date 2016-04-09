@@ -1,6 +1,6 @@
 var db = require("./models");
 
-// var itemList0 = [];
+var itemList0 = [];
 // itemList0.push({
 //   item: 'laptop',
 //   packed: true,
@@ -22,7 +22,7 @@ var db = require("./models");
 //   important: false
 // });
 //
-// var itemList1 = [];
+var itemList1 = [];
 // itemList1.push({
 //   item: 'taser',
 //   packed: true,
@@ -38,10 +38,10 @@ var db = require("./models");
 //   packed: true,
 //   important: true
 // });
-//
-//
-//
-// var bagObject = [];
+
+
+
+var bagObject = [];
 // bagObject.push({
 //   type: "Backpack",
 //   contents: itemList0,

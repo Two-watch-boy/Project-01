@@ -19,7 +19,7 @@ $(document).ready(function() {
   var i = 0;
   var o = 0;
   function bagsSuccess(json) {
-    $('.addBag').on('mousedown', function(){
+    $('#meow').on('mousedown', function(){
       console.log("clicked for bag", json,i, o);
       $('.bag0').append('<div class="col-sm-offset-3 col-sm-6 box">' +
         '<img class="glyph"src="/images/glyphicons-342-briefcase.png">' +
@@ -55,14 +55,17 @@ $(document).ready(function() {
 
   $('#meow').on("click", function(e){
     console.log("I was clicked");
-    var test = $('#bagName').val();
-    console.log(test);
-
+    var nameBag = $('#bagName').val();
+    var fullBag = $('#bagFull').is(':checked');
+    var packedBag = $('#bagPacked').is(':checked');
+    console.log("look ma! i've got a " + nameBag + " thats " + fullBag + " and "+ packedBag);
+    $("input").val("");
+    $('input:checkbox').removeAttr('checked');
 
     $.ajax({
       method: "POST",
       url: "api/bag",
-      data: {type: test}
+      data: {type: nameBag, full: fullBag, packed: packedBag}
     });
 
     return false;
