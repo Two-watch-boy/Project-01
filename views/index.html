@@ -29,16 +29,24 @@
     <h1> Packing Prepared <img class="add addBag button" src="/images/glyphicons-191-plus-sign.png"></h1>
   </header>
     <div class="container">
-      <div class="row bag0">
-        <!-- <div class="col-sm-offset-3 col-sm-6 box">
-          <img class="glyph"src="/images/glyphicons-342-briefcase.png">
-          <img class="addItem button" src="/images/glyphicons-191-plus-sign.png">
-        </div> -->
+      <div id="target">
+        <script id='#bag-template' type='text/x-handlebars-template'>
+          <!-- one album -->
+          <div class="row bag0">
+            <div class="row album" data-bag-id="{{_id}}">
+              <div class="col-sm-offset-3 col-sm-6 box">
+                <img class="glyph"src="/images/glyphicons-342-briefcase.png">{{type}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-offset-4 col-sm-5 space">{{item}} </div>
+            </div>
+          </div>
+        </script>
       </div>
-      <!-- <div class="row">
-        <div class="col-xs-offset-4 col-sm-5 space"> </div>
-      </div>
-      <div class="row bag1">
+    </div>
+
+      <!-- <div class="row bag1">
         <div class="col-sm-offset-3 col-sm-6 box">
           <img class="glyph"src="/images/glyphicons-34-luggage.png">
           <img class="addItem button" src="/images/glyphicons-191-plus-sign.png">

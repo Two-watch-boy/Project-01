@@ -6,9 +6,9 @@
 
 $(document).ready(function() {
 
-  $('#myModal').on('shown.bs.modal', function () {
-    console.log("modallll");
-    $('#myInput').focus();
+  // $('#myModal').on('shown.bs.modal', function () {
+  //   console.log("modallll");
+  //   $('#myInput').focus();
 });
   // make an ajax call to my server
   // $('#bagquery').on('click', function clickHandler(){
@@ -20,33 +20,40 @@ $(document).ready(function() {
     });
   // });
 
+function renderBag(bag){
+  var bagHtml = $("#bag-template").html();
+  var bagTemplate = Handlebars.compile(bagHtml);
+  var html = bagTemplate(bag);
+  $('#target').prepend(html);
+}
+
 
   var i = 0;
   var o = 0;
   function bagsSuccess(json) {
     $('#meow').on('mouseup', function(){
-      console.log("clicked for bag", json,i, o);
-      $('.bag0').append('<div class="col-sm-offset-3 col-sm-6 box">' +
-        '<img class="glyph"src="/images/glyphicons-342-briefcase.png">' +
-        '<p>' +
-        json[i].type +
-        '</p>' +
-        '<img class="addItem button" src="/images/glyphicons-191-plus-sign.png">' +
-        '</div>'
-      );
+      // console.log("clicked for bag", json,i, o);
+      // $('.bag0').append('<div class="col-sm-offset-3 col-sm-6 box">' +
+      //   '<img class="glyph"src="/images/glyphicons-342-briefcase.png">' +
+      //   '<p>' +
+      //   json[i].type +
+      //   '</p>' +
+      //   '<img class="addItem button" src="/images/glyphicons-191-plus-sign.png">' +
+      //   '</div>'
+      // );
       addItemListener(json);
+      renderBag(json);
       i++;
     }); //closes addBag mousedown
   }
-
   function addItemListener(json){
-    $('#meow').on('mouseup', function(){
-      console.log("clicked for item");
-      $('.bag0').append('<div class="col-xs-offset-4 col-sm-5 space">' +
-      json[i].contents[o].item +
-      ' </div>');
-      o++;
-    }); //closes addItem mousedown
+    // $('#meow').on('mouseup', function(){
+    //   console.log("clicked for item", json);
+    //   $('.bag0').append('<div class="col-xs-offset-4 col-sm-5 space">' +
+    //   json[i].contents[o].item +
+    //   ' </div>');
+    //   o++;
+    // }); //closes addItem mousedown
   }
   function bagsError(err){
     console.log(err);
@@ -79,8 +86,9 @@ $(document).ready(function() {
       url: "api/bag/contents",
       data: {contents:bagConts}
     });
+    bagsSuccess(json);
     return false;
   });
 
 
-}); //end document.onready
+ //end document.onready
