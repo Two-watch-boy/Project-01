@@ -24,7 +24,7 @@ function renderBag(bag){
   var bagTemplate = Handlebars.compile(bagHtml);
   var html = bagTemplate(bag);
   $('#target').prepend(html);
-  console.log("hey look at these bags i found:", bag);
+  console.log("hey look at these things i found:", bag);
 }
 
   function bagsSuccess(json) {
@@ -66,7 +66,7 @@ function renderBag(bag){
         packedBag = "hopefull";
       }
     // var bagConts = $('.itemName').val();
-    console.log("look ma! i've got a " + nameBag + " thats " + fullBag + " and "+ packedBag);
+    console.log("look ma! i've got a " + nameBag + " that's " + fullBag + " and "+ packedBag);
     $("input").val("");
     $('input:checkbox').removeAttr('checked');
 
@@ -81,7 +81,7 @@ function renderBag(bag){
 
     function newBagSuccess(json){
       console.log("lookie here", json);
-      renderBag(json[0]);
+      renderBag(json);
     }
     function newBagFailure(err) {
       console.log('we done fucked up', err);
