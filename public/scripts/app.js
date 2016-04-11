@@ -9,15 +9,16 @@ $(document).ready(function() {
   // $('#myModal').on('shown.bs.modal', function () {
   //   console.log("modallll");
   //   $('#myInput').focus();
+  $.ajax({
+    method: "GET",
+    url: "api/bag",
+    success: bagsSuccess,
+    error: bagsError
+  });
+
 });
   // make an ajax call to my server
   // $('#bagquery').on('click', function clickHandler(){
-    $.ajax({
-      method: "GET",
-      url: "api/bag",
-      success: bagsSuccess,
-      error: bagsError
-    });
   // });
 
 function renderBag(bag){
@@ -25,13 +26,22 @@ function renderBag(bag){
   var bagTemplate = Handlebars.compile(bagHtml);
   var html = bagTemplate(bag);
   $('#target').prepend(html);
+  console.log("hey look at these bags i found", bag);
 }
 
 
   var i = 0;
   var o = 0;
+
+
   function bagsSuccess(json) {
+    json.forEach(function(bag){
+      renderBag(bag);
+    });
+    renderBag(json[0]);
     $('#meow').on('mouseup', function(){
+
+
       // console.log("clicked for bag", json,i, o);
       // $('.bag0').append('<div class="col-sm-offset-3 col-sm-6 box">' +
       //   '<img class="glyph"src="/images/glyphicons-342-briefcase.png">' +
@@ -42,7 +52,6 @@ function renderBag(bag){
       //   '</div>'
       // );
       addItemListener(json);
-      renderBag(json);
       i++;
     }); //closes addBag mousedown
   }

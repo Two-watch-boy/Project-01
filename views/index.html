@@ -28,9 +28,27 @@
   <header>
     <h1> Packing Prepared <img class="add addBag button" src="/images/glyphicons-191-plus-sign.png"></h1>
   </header>
+  <div id="bagContents">
+    <div class="testText">
+      <!-- <form class=""> -->
+      <!-- <form class="" action="index.html" method="post"> -->
+      <input id="bagName" type="text" name="bagname" value="" placeholder="Bag Type"></br>
+      <input id="bagFull" type="checkbox" name="name" value=""> Is bag full? </input></br>
+      <input id="bagPacked" type="checkbox" name="name" value=""> Is bag packed?</input></br>
+      <div id="contents">
+        <input class="itemName" type="text" name="bagname" value="" placeholder="Item Name"></br>
+        <input class="itemName" type="text" name="bagname" value="" placeholder="Item Name"></br>
+        <input class="itemName" type="text" name="bagname" value="" placeholder="Item Name"></br>
+
+      </div>
+      <button id="meow" type="button" name="button">Meow</button>
+
+      <!-- </form> -->
+    </div>
+  </div>
     <div class="container">
       <div id="target">
-        <script id='#bag-template' type='text/x-handlebars-template'>
+        <script id='bag-template' type='text/x-handlebars-template'>
           <!-- one album -->
           <div class="row bag0">
             <div class="row album" data-bag-id="{{_id}}">
@@ -55,24 +73,6 @@
     </div> -->
   <!-- <a href="/elephant">Elephant</a> -->
 
-  <div id="bagContents">
-    <div class="testText">
-      <!-- <form class=""> -->
-        <!-- <form class="" action="index.html" method="post"> -->
-        <input id="bagName" type="text" name="bagname" value="" placeholder="Bag Type"></br>
-          <input id="bagFull" type="checkbox" name="name" value=""> Is bag full? </input></br>
-          <input id="bagPacked" type="checkbox" name="name" value=""> Is bag packed?</input></br>
-          <div id="contents">
-            <input class="itemName" type="text" name="bagname" value="" placeholder="Item Name"></br>
-            <input class="itemName" type="text" name="bagname" value="" placeholder="Item Name"></br>
-            <input class="itemName" type="text" name="bagname" value="" placeholder="Item Name"></br>
-
-          </div>
-        <button id="meow" type="button" name="button">Meow</button>
-
-      <!-- </form> -->
-    </div>
-  </div>
 </body>
 <!-- <footer> icons by GLYPHICONS.com</footer> -->
 </html>
