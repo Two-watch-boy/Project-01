@@ -24,7 +24,7 @@ $(document).ready(function() {
   var i = 0;
   var o = 0;
   function bagsSuccess(json) {
-    $('.addBag').on('mousedown', function(){
+    $('#meow').on('mouseup', function(){
       console.log("clicked for bag", json,i, o);
       $('.bag0').append('<div class="col-sm-offset-3 col-sm-6 box">' +
         '<img class="glyph"src="/images/glyphicons-342-briefcase.png">' +
@@ -40,7 +40,7 @@ $(document).ready(function() {
   }
 
   function addItemListener(json){
-    $('.addItem').on('mousedown', function(){
+    $('#meow').on('mouseup', function(){
       console.log("clicked for item");
       $('.bag0').append('<div class="col-xs-offset-4 col-sm-5 space">' +
       json[i].contents[o].item +
@@ -58,7 +58,7 @@ $(document).ready(function() {
   }
 
 
-  $('#meow').on("click", function(e){
+  $('#meow').on("mousedown", function(e){
     console.log("I was clicked");
     var nameBag = $('#bagName').val();
     var fullBag = $('#bagFull').is(':checked');
