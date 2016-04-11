@@ -35,11 +35,6 @@
       <input id="bagName" type="text" name="bagname" value="" placeholder="Bag Type"></br>
       <input id="bagFull" type="checkbox" name="name" value=""> Is bag full? </input></br>
       <input id="bagPacked" type="checkbox" name="name" value=""> Is bag packed?</input></br>
-      <div id="contents">
-        <input class="itemName" type="text" name="bagname" value="" placeholder="Item Name"></br>
-        <input class="itemName" type="text" name="bagname" value="" placeholder="Item Name"></br>
-        <input class="itemName" type="text" name="bagname" value="" placeholder="Item Name"></br>
-
       </div>
       <button id="meow" type="button" name="button">Meow</button>
 
@@ -53,7 +48,8 @@
           <div class="row bag0">
             <div class="row album" data-bag-id="{{_id}}">
               <div class="col-sm-offset-3 col-sm-6 box">
-                <img class="glyph"src="/images/glyphicons-342-briefcase.png">{{type}}
+                <img class="glyph"src="/images/glyphicons-342-briefcase.png">
+                <p>{{type}}</p>
               </div>
             </div>
             <div class="row">

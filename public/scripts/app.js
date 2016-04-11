@@ -1,14 +1,12 @@
 
 /* CLIENT-SIDE JS
   people can see this, be careful!
-
 */
 
 $(document).ready(function() {
 
-  // $('#myModal').on('shown.bs.modal', function () {
-  //   console.log("modallll");
-  //   $('#myInput').focus();
+  $('#meow').on("mousedown", handleMeowClick);
+
   $.ajax({
     method: "GET",
     url: "api/bag",
@@ -29,40 +27,17 @@ function renderBag(bag){
   console.log("hey look at these bags i found", bag);
 }
 
-
-  var i = 0;
-  var o = 0;
-
-
   function bagsSuccess(json) {
     json.forEach(function(bag){
       renderBag(bag);
     });
-    renderBag(json[0]);
-    $('#meow').on('mouseup', function(){
+    // renderBag(json[0]);
+    // $('#meow').on('mouseup', function(){
 
-
-      // console.log("clicked for bag", json,i, o);
-      // $('.bag0').append('<div class="col-sm-offset-3 col-sm-6 box">' +
-      //   '<img class="glyph"src="/images/glyphicons-342-briefcase.png">' +
-      //   '<p>' +
-      //   json[i].type +
-      //   '</p>' +
-      //   '<img class="addItem button" src="/images/glyphicons-191-plus-sign.png">' +
-      //   '</div>'
-      // );
       addItemListener(json);
-      i++;
-    }); //closes addBag mousedown
+    // }); //closes addBag mousedown
   }
   function addItemListener(json){
-    // $('#meow').on('mouseup', function(){
-    //   console.log("clicked for item", json);
-    //   $('.bag0').append('<div class="col-xs-offset-4 col-sm-5 space">' +
-    //   json[i].contents[o].item +
-    //   ' </div>');
-    //   o++;
-    // }); //closes addItem mousedown
   }
   function bagsError(err){
     console.log(err);
@@ -74,30 +49,32 @@ function renderBag(bag){
   }
 
 
-  $('#meow').on("mousedown", function(e){
+
+  function handleMeowClick(e){
     console.log("I was clicked");
     var nameBag = $('#bagName').val();
     var fullBag = $('#bagFull').is(':checked');
     var packedBag = $('#bagPacked').is(':checked');
-    var bagConts = $('.itemName').val();
-    console.log("look ma! i've got a " + nameBag + " thats " + fullBag + " and "+ packedBag + " with " + contents);
+    // var bagConts = $('.itemName').val();
+    console.log("look ma! i've got a " + nameBag + " thats " + fullBag + " and "+ packedBag);
     $("input").val("");
     $('input:checkbox').removeAttr('checked');
 
     $.ajax({
       method: "POST",
       url: "api/bag",
-      data: {type: nameBag, full: fullBag, packed: packedBag}
+      data: {type: nameBag, full: fullBag, packed: packedBag},
+      success: newBagSuccess,
+      error: newBagFailure
     });
 
-    $.ajax({
-      method: "POST",
-      url: "api/bag/contents",
-      data: {contents:bagConts}
-    });
-    bagsSuccess(json);
+
+    function newBagSuccess(json){
+      console.log("lookie here", json);
+      renderBag(json[0]);
+    }
+    function newBagFailure(err) {
+      console.log('we done fucked up', err);
+    }
     return false;
-  });
-
-
- //end document.onready
+  }
