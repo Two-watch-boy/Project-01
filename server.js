@@ -58,7 +58,7 @@ app.post('/api/bag', function(req, res){
 });
 
 app.post('api/bag/contents', function(req, res){
-  console.log("CONTENTS STUFF ::::::::::::::::::::", req.body);
+  console.log("CONTENTS STUFF::::::::::::::::::::", req.body);
 
   db.Item.create(req.body, function(err, item) {
     console.log(item);
