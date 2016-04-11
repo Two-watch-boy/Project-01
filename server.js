@@ -49,7 +49,6 @@ app.get('/api/bag', function sanity(req, res) {
 
 app.post('/api/bag', function(req, res){
   console.log("BODY STUFF:::::::::::::::::::::::", req.body);
-  res.send();
 
   db.Bag.create(req.body, function(err, bag) {
     if (err) { console.log('error', err); }
@@ -58,7 +57,14 @@ app.post('/api/bag', function(req, res){
   });
 });
 
+app.post('api/bag/contents', function(req, res){
+  console.log("CONTENTS STUFF ::::::::::::::::::::", req.body);
 
+  db.Item.create(req.body, function(err, item) {
+    console.log(item);
+    res.json(item);
+  });
+});
 
 
 

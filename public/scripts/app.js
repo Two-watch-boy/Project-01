@@ -71,9 +71,14 @@ $(document).ready(function() {
     $.ajax({
       method: "POST",
       url: "api/bag",
-      data: {type: nameBag, contents: [bagConts], full: fullBag, packed: packedBag}
+      data: {type: nameBag, full: fullBag, packed: packedBag}
     });
 
+    $.ajax({
+      method: "POST",
+      url: "api/bag/contents",
+      data: {contents:bagConts}
+    });
     return false;
   });
 
