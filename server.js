@@ -77,6 +77,22 @@ app.delete('/api/bag/:id', function (req, res) {
     });
   });
 
+app.put('/api/bag/:id', function (req, res) {
+  var bagId = req.params.id;
+
+  db.Bag.findOne({ _id: bagID }, function (err, foundBag) {
+    // update the todos's attributes
+    foundBag.task = req.body.task;
+    foundBag.description = req.body.description;
+
+    // save updated todo in db
+    foundBag.save(function (err, savedBag) {
+      res.json(savedBag);
+    });
+  });
+});
+
+
 /**********
  * SERVER *
  **********/
