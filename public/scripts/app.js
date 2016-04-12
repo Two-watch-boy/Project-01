@@ -54,31 +54,33 @@ function renderBag(bag){
     console.log("I was clicked");
     var nameBag = $('#bagName').val();
     var fullBag = $('#bagFull').is(':checked');
-      if (fullBag === true){
-        fullBag = "deadly";
-      }else{
-        fullBag = "benign";
-      }
+      // if (fullBag === true){
+      //   fullBag = "deadly";
+      // }else{
+      //   fullBag = "benign";
+      // }
     var packedBag = $('#bagPacked').is(':checked');
-      if (packedBag === true){
-        packedBag = "hopeless";
-      }else{
-        packedBag = "hopefull";
-      }
+      // if (packedBag === true){
+      //   packedBag = "hopeless";
+      // }else{
+      //   packedBag = "hopefull";
+      // }
+    var nameOfItem = $('#itemName0').val();
+    var contentsVar = [{item: nameOfItem , packed: false, important: true}];
     // var bagConts = $('.itemName').val();
     console.log("look ma! i've got a " + nameBag + " that's " + fullBag + " and "+ packedBag);
+    console.log("what have i here", contentsVar);
     $("input").val("");
     $('input:checkbox').removeAttr('checked');
+
 
     $.ajax({
       method: "POST",
       url: "api/bag",
-      data: {type: nameBag, full: fullBag, packed: packedBag},
+      data: {type: nameBag, full: fullBag, packed: packedBag, contents: contentsVar},
       success: newBagSuccess,
       error: newBagFailure
     });
-
-
     function newBagSuccess(json){
       console.log("lookie here", json);
       renderBag(json);

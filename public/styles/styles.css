@@ -40,11 +40,38 @@ p{
 }
 .addBag:hover{
   background-color: rgba(225, 225, 225, 1);
+  cursor: pointer;
 }
 .addItem:hover{
   background-color: rgba(245, 245, 245, 1);
 }
+.item{
+  font-size: 20px;
+}
+.modalInput{
+  display: block;
+  margin: auto;
+}
+label{
+  font-weight: 0 !important;
+  padding-left:  5px;
 
+}
+.checkboxDiv{
+  display: inline-block;
+  margin-left: 30%;
+}
+.divCheckbox{
+  display: inline-block;
+}
+h4{
+  text-align: center;
+  font-size: 30px;
+}
+li{
+  display: inline;
+  margin: 4%;
+}
 /*footer{
   padding-bottom: 0px;
 }*/
