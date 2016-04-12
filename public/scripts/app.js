@@ -9,6 +9,8 @@ $(document).ready(function() {
 
   $("#target").on("click",".deleteButton", handleDeleteBag);
 
+  $("#target").on("click",".editButton", handleEditBag);
+
   $.ajax({
     method: "GET",
     url: "api/bag",
@@ -118,4 +120,16 @@ function renderBag(bag){
 
   function deleteSuccessFunction(deleteSuccess){
     console.log("this is where magic happens!", deleteSuccess);
+  }
+
+  function handleEditBag(e){
+    e.preventDefault();
+    var bagId = $(this).parents('.row.bag').data("bag-id");
+    $.ajax({
+      method: 'PUT',
+      url: '/api/bag/' + bagId,
+      data: data,
+      success: editBagSuccess
+});
+
   }
