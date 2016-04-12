@@ -23,13 +23,13 @@ $(document).ready(function() {
   // $('#bagquery').on('click', function clickHandler(){
   // });
 
-function renderBag(bag){
-  var bagHtml = $("#bag-template").html();
-  var bagTemplate = Handlebars.compile(bagHtml);
-  var html = bagTemplate(bag);
-  $('#target').prepend(html);
-  console.log("hey look at these things i found:", bag);
-}
+  function renderBag(bag){
+    var bagHtml = $("#bag-template").html();
+    var bagTemplate = Handlebars.compile(bagHtml);
+    var html = bagTemplate(bag);
+    $('#target').prepend(html);
+    console.log("hey look at these things i found:", bag);
+  }
 
   function bagsSuccess(json) {
     json.forEach(function(bag){
@@ -93,7 +93,7 @@ function renderBag(bag){
       error: newBagFailure
     });
     function newBagSuccess(json){
-      console.log("lookie here", json);
+      console.log("lookie here, we got some json:", json);
       renderBag(json);
     }
     function newBagFailure(err) {
@@ -119,7 +119,7 @@ function renderBag(bag){
   }
 
   function deleteSuccessFunction(deleteSuccess){
-    console.log("this is where magic happens!", deleteSuccess);
+    console.log("This is where the deleting magic happens!", deleteSuccess);
   }
 
   function handleEditBag(e){
@@ -130,6 +130,10 @@ function renderBag(bag){
       url: '/api/bag/' + bagId,
       data: data,
       success: editBagSuccess
-});
+    });
 
+  }
+
+  function editBagSuccess(editSuccess){
+    console.log("what have we here? oh! it's some edits", editSuccess);
   }
