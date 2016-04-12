@@ -24,7 +24,7 @@ p{
   margin-bottom: 10px;
 }
 .space:hover{
-  background-color: rgba(210, 210, 210, 1);
+  background-color: rgba(200, 200, 200, 1);
 }
 .glyph{
   margin: 10px 0 -2px 0;
@@ -39,11 +39,8 @@ p{
   border-radius: 25px;
 }
 .addBag:hover{
-  background-color: rgba(225, 225, 225, 1);
+  background-color: rgba(210, 210, 210, 1);
   cursor: pointer;
-}
-.addItem:hover{
-  background-color: rgba(245, 245, 245, 1);
 }
 .item{
   font-size: 20px;
