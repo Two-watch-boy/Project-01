@@ -49,7 +49,7 @@ bagObject.push({
   packed: false
 });
 bagObject.push({
-  type: "purse",
+  type: "Purse",
   contents: itemList1,
   full: true,
   packed: true
