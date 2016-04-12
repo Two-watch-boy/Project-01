@@ -74,6 +74,11 @@ li{
   margin-top: 8px;
   margin-right: -6px;
 }
+.editButton{
+  float: right;
+  margin-top: 8px;
+  margin-right: 8px;
+}
 /*footer{
   padding-bottom: 0px;
 }*/
