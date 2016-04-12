@@ -51,6 +51,7 @@ function renderBag(bag){
 
 
   function handleMeowClick(e){
+    e.preventDefault();
     console.log("I was clicked");
     var nameBag = $('#bagName').val();
     var fullBag = $('#bagFull').is(':checked');
@@ -65,8 +66,13 @@ function renderBag(bag){
       // }else{
       //   packedBag = "hopefull";
       // }
-    var nameOfItem = $('#itemName0').val();
-    var contentsVar = [{item: nameOfItem , packed: false, important: true}];
+    var nameOfItem0 = {item: $('#itemName0').val(), packed: false, inportant: true};
+    var nameOfItem1 = {item: $('#itemName1').val(), packed: false, inportant: true};
+    var nameOfItem2 = {item: $('#itemName2').val(), packed: false, inportant: true};
+    var nameOfItem3 = {item: $('#itemName3').val(), packed: false, inportant: true};
+    var nameOfItem4 = {item: $('#itemName4').val(), packed: false, inportant: true};
+
+    var contentsList = [nameOfItem0, nameOfItem1, nameOfItem2, nameOfItem3, nameOfItem4];
     // var bagConts = $('.itemName').val();
     console.log("look ma! i've got a " + nameBag + " that's " + fullBag + " and "+ packedBag);
     console.log("what have i here", contentsVar);
