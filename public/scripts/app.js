@@ -113,6 +113,7 @@ $(document).ready(function() {
     $.ajax({
       method: 'DELETE',
       url: 'api/bag/' + bagId,
+
       success: deleteSuccessFunction
     });
 
@@ -122,13 +123,37 @@ $(document).ready(function() {
     console.log("This is where the deleting magic happens!", deleteSuccess);
   }
 
+
+
+
   function handleEditBag(e){
     e.preventDefault();
     var bagId = $(this).parents('.row.bag').data("bag-id");
+    var nameBag = $('#bagName').val();
+    var fullBag = $('#bagFull').is(':checked');
+      // if (fullBag === true){
+      //   fullBag = "deadly";
+      // }else{
+      //   fullBag = "benign";
+      // }
+    var packedBag = $('#bagPacked').is(':checked');
+      // if (packedBag === true){
+      //   packedBag = "hopeless";
+      // }else{
+      //   packedBag = "hopefull";
+      // }
+    var nameOfItem0 = {item: $('#itemName0').val(), packed: $('#packed0').is(':checked'), important: $('#important0').is(':checked')};
+    var nameOfItem1 = {item: $('#itemName1').val(), packed: $('#packed1').is(':checked'), important: $('#important1').is(':checked')};
+    var nameOfItem2 = {item: $('#itemName2').val(), packed: $('#packed2').is(':checked'), important: $('#important2').is(':checked')};
+    var nameOfItem3 = {item: $('#itemName3').val(), packed: $('#packed3').is(':checked'), important: $('#important3').is(':checked')};
+    var nameOfItem4 = {item: $('#itemName4').val(), packed: $('#packed4').is(':checked'), important: $('#important4').is(':checked')};
+
+    var contentsList = [nameOfItem0, nameOfItem1, nameOfItem2, nameOfItem3, nameOfItem4];
+
     $.ajax({
       method: 'PUT',
       url: '/api/bag/' + bagId,
-      data: data,
+      data: {type: nameBag, full: fullBag, packed: packedBag, contents: contentsList},
       success: editBagSuccess
     });
 

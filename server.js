@@ -80,7 +80,7 @@ app.delete('/api/bag/:id', function (req, res) {
 app.put('/api/bag/:id', function (req, res) {
   var bagId = req.params.id;
 
-  db.Bag.findOne({ _id: bagID }, function (err, foundBag) {
+  db.Bag.findOne({ _id: bagId }, function (err, foundBag) {
     // update the todos's attributes
     foundBag.task = req.body.task;
     foundBag.description = req.body.description;
