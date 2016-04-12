@@ -50,28 +50,28 @@
         </br>
           <input class= "modalInput" id="itemName0" type="text" name="itemname" value="" placeholder="Item"></br>
             <ul>
-              <li><input type="checkbox" name="name" value=""><label>Important?</label></li>
-              <li><input type="checkbox" name="name" value=""><label>Packed?</label></li>
+              <li><input id="inportant0" type="checkbox" name="name" value=""><label>Important?</label></li>
+              <li><input id="packed0" type="checkbox" name="name" value=""><label>Packed?</label></li>
             </ul>
           <input class= "modalInput" id="itemName1" type="text" name="itemname" value="" placeholder="Item"></br>
             <ul>
-              <li><input type="checkbox" name="name" value=""><label>Important?</label></li>
-              <li><input type="checkbox" name="name" value=""><label>Packed?</label></li>
+              <li><input id="inportant1" type="checkbox" name="name" value=""><label>Important?</label></li>
+              <li><input id="packed1" type="checkbox" name="name" value=""><label>Packed?</label></li>
             </ul>
           <input class= "modalInput" id="itemName2" type="text" name="itemname" value="" placeholder="Item"></br>
             <ul>
-              <li><input type="checkbox" name="name" value=""><label>Important?</label></li>
-              <li><input type="checkbox" name="name" value=""><label>Packed?</label></li>
+              <li><input id="inportant2" type="checkbox" name="name" value=""><label>Important?</label></li>
+              <li><input id="packed2" type="checkbox" name="name" value=""><label>Packed?</label></li>
             </ul>
           <input class= "modalInput" id="itemName3" type="text" name="itemname" value="" placeholder="Item"></br>
             <ul>
-              <li><input type="checkbox" name="name" value=""><label>Important?</label></li>
-              <li><input type="checkbox" name="name" value=""><label>Packed?</label></li>
+              <li><input id="inportant3" type="checkbox" name="name" value=""><label>Important?</label></li>
+              <li><input id="packed3" type="checkbox" name="name" value=""><label>Packed?</label></li>
             </ul>
           <input class= "modalInput" id="itemName4" type="text" name="itemname" value="" placeholder="Item"></br>
             <ul>
-              <li><input type="checkbox" name="name" value=""><label>Important?</label></li>
-              <li><input type="checkbox" name="name" value=""><label>Packed?</label></li>
+              <li><input id="inportant4" type="checkbox" name="name" value=""><label>Important?</label></li>
+              <li><input id="packed4" type="checkbox" name="name" value=""><label>Packed?</label></li>
             </ul>
           <button class= "modalInput" id="meow" type="submit" name="button">Meow</button></br>
 
@@ -89,10 +89,11 @@
         <script id='bag-template' type='text/x-handlebars-template'>
           <!-- one album -->
           <div class="row bag0">
-            <div class="row album" data-bag-id="{{_id}}">
+            <div class="row bag" data-bag-id="{{_id}}">
               <div class="col-sm-offset-3 col-sm-6 box">
                 <img class="glyph"src="/images/glyphicons-342-briefcase.png">
                 <p>{{type}}</p>
+                <button type="button" class="btn btn-danger deleteButton">Delete</button>
               </div>
             </div>
             <div class="row">
@@ -104,15 +105,6 @@
         </script>
       </div>
     </div>
-
-      <!-- <div class="row bag1">
-        <div class="col-sm-offset-3 col-sm-6 box">
-          <img class="glyph"src="/images/glyphicons-34-luggage.png">
-          <img class="addItem button" src="/images/glyphicons-191-plus-sign.png">
-        </div>
-      </div>
-    </div> -->
-  <!-- <a href="/elephant">Elephant</a> -->
 
 </body>
 <!-- <footer> icons by GLYPHICONS.com</footer> -->

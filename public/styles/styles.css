@@ -69,6 +69,11 @@ li{
   display: inline;
   margin: 4%;
 }
+.deleteButton{
+  float: right;
+  margin-top: 8px;
+  margin-right: -6px;
+}
 /*footer{
   padding-bottom: 0px;
 }*/

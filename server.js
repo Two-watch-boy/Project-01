@@ -57,7 +57,7 @@ app.post('/api/bag', function(req, res){
   });
 });
 
-app.post('api/bag/contents', function(req, res){
+app.post('/api/bag/contents', function(req, res){
   console.log("CONTENTS STUFF::::::::::::::::::::", req.body);
 
   db.Item.create(req.body, function(err, item) {
@@ -67,6 +67,15 @@ app.post('api/bag/contents', function(req, res){
 });
 
 
+app.delete('/api/bag/:id', function (req, res) {
+    // get todo id from url params (`req.params`)
+    var bagId = req.params.id;
+
+    // find todo in db by id and remove
+    db.Bag.findOneAndRemove({ _id: bagId }, function (err, deletedBag) {
+      res.json(deletedBag);
+    });
+  });
 
 /**********
  * SERVER *

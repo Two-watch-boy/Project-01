@@ -7,6 +7,8 @@ $(document).ready(function() {
 
   $('#meow').on("mousedown", handleMeowClick);
 
+  $("#target").on("click",".deleteButton", handleDeleteBag);
+
   $.ajax({
     method: "GET",
     url: "api/bag",
@@ -73,9 +75,10 @@ function renderBag(bag){
     var nameOfItem4 = {item: $('#itemName4').val(), packed: false, inportant: true};
 
     var contentsList = [nameOfItem0, nameOfItem1, nameOfItem2, nameOfItem3, nameOfItem4];
+    console.log(contentsList);
     // var bagConts = $('.itemName').val();
     console.log("look ma! i've got a " + nameBag + " that's " + fullBag + " and "+ packedBag);
-    console.log("what have i here", contentsVar);
+    console.log("what have i here", contentsList);
     $("input").val("");
     $('input:checkbox').removeAttr('checked');
 
@@ -83,7 +86,7 @@ function renderBag(bag){
     $.ajax({
       method: "POST",
       url: "api/bag",
-      data: {type: nameBag, full: fullBag, packed: packedBag, contents: contentsVar},
+      data: {type: nameBag, full: fullBag, packed: packedBag, contents: contentsList},
       success: newBagSuccess,
       error: newBagFailure
     });
@@ -94,5 +97,25 @@ function renderBag(bag){
     function newBagFailure(err) {
       console.log('we done fucked up', err);
     }
+
+
+
     return false;
+  }
+
+  function handleDeleteBag(e){
+    e.preventDefault();
+    var bagId = $(this).parents('.row.bag').data("bag-id");
+    console.log("deleting this thing hurr", bagId);
+    $(this).parents('.row.bag0').remove();
+    $.ajax({
+      method: 'DELETE',
+      url: 'api/bag/' + bagId,
+      success: deleteSuccessFunction
+    });
+
+  }
+
+  function deleteSuccessFunction(deleteSuccess){
+    console.log("this is where magic happens!", deleteSuccess);
   }
