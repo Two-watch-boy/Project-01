@@ -68,11 +68,11 @@ function renderBag(bag){
       // }else{
       //   packedBag = "hopefull";
       // }
-    var nameOfItem0 = {item: $('#itemName0').val(), packed: false, inportant: true};
-    var nameOfItem1 = {item: $('#itemName1').val(), packed: false, inportant: true};
-    var nameOfItem2 = {item: $('#itemName2').val(), packed: false, inportant: true};
-    var nameOfItem3 = {item: $('#itemName3').val(), packed: false, inportant: true};
-    var nameOfItem4 = {item: $('#itemName4').val(), packed: false, inportant: true};
+    var nameOfItem0 = {item: $('#itemName0').val(), packed: $('#packed0)').is(':checked'), inportant: $('#inportant0)').is(':checked')};
+    var nameOfItem1 = {item: $('#itemName1').val(), packed: $('#packed1)').is(':checked'), inportant: $('#inportant1)').is(':checked')};
+    var nameOfItem2 = {item: $('#itemName2').val(), packed: $('#packed2)').is(':checked'), inportant: $('#inportant2)').is(':checked')};
+    var nameOfItem3 = {item: $('#itemName3').val(), packed: $('#packed3)').is(':checked'), inportant: $('#inportant3)').is(':checked')};
+    var nameOfItem4 = {item: $('#itemName4').val(), packed: $('#packed4)').is(':checked'), inportant: $('#inportant4)').is(':checked')};
 
     var contentsList = [nameOfItem0, nameOfItem1, nameOfItem2, nameOfItem3, nameOfItem4];
     console.log(contentsList);
