@@ -4,8 +4,8 @@ var Schema = mongoose.Schema;
 
 var ItemsSchema = new Schema({
      item: String,
-     packed: Boolean,
-     important: Boolean
+     packed: String,
+     important: String
 });
 
 var Items = mongoose.model('Items', ItemsSchema);
