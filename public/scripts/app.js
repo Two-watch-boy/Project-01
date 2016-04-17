@@ -61,41 +61,6 @@ $(document).ready(function() {
     var fullBag = $('#bagFull').is(':checked');
     var packedBag = $('#bagPacked').is(':checked');
 
-
-    var item1packed = $('#packed1').is(':checked');
-    var item1important = $('#important1').is(':checked');
-    var item2packed = $('#packed2').is(':checked');
-      if ($('#packed2').is(':checked') === false){
-        item2packed = "";
-      }
-    var item2important = $('#important2').is(':checked');
-      if($('#important2').is(':checked') === false){
-        item2important = "";
-      }
-    var item3packed = $('#packed3').is(':checked');
-      if ($('#packed3').is(':checked') === false){
-        item3packed = "";
-      }
-    var item3important = $('#important3').is(':checked');
-      if($('#important3').is(':checked') === false){
-        item3important = "";
-      }
-    var item4packed = $('#packed4').is(':checked');
-      if ($('#packed4').is(':checked') === false){
-        item4packed = "";
-      }
-    var item4important = $('#important4').is(':checked');
-      if($('#important4').is(':checked') === false){
-        item4important = "";
-      }
-
-    console.log("i've got these values for my items packed and important ", item0important, item0packed);
-
-
-
-
-
-
     var nameOfItem0 = {item: $('#itemName0').val(), packed: item0packed, important: item0important};
       if ($('#packed0').is(':checked') === false && $('#important0').is(':checked') === false){
         nameOfItem0 = null;
@@ -104,10 +69,19 @@ $(document).ready(function() {
       if ($('#packed1').is(':checked') === false && $('#important1').is(':checked') === false){
         nameOfItem1 = null;
       }
-
     var nameOfItem2 = {item: $('#itemName2').val(), packed: item2packed, important: item2important};
+      if ($('#packed2').is(':checked') === false && $('#important2').is(':checked') === false){
+        nameOfItem2 = null;
+      }
     var nameOfItem3 = {item: $('#itemName3').val(), packed: item3packed, important: item3important};
+      if ($('#packed3').is(':checked') === false && $('#important3').is(':checked') === false){
+        nameOfItem3 = null;
+      }
     var nameOfItem4 = {item: $('#itemName4').val(), packed: item4packed, important: item4important};
+    if ($('#packed4').is(':checked') === false && $('#important4').is(':checked') === false){
+      nameOfItem4 = null;
+    }
+
 
     var contentsList = [nameOfItem0, nameOfItem1, nameOfItem2, nameOfItem3, nameOfItem4];
     console.log(contentsList);
