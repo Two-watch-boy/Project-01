@@ -136,31 +136,23 @@ $(document).ready(function() {
   function handleEditBag(e){
     e.preventDefault();
     var bagId = $(this).parents('.row.bag').data("bag-id");
-    var nameBag = $('#bagName').val();
-    var fullBag = $('#bagFull').is(':checked');
-      // if (fullBag === true){
-      //   fullBag = "deadly";
-      // }else{
-      //   fullBag = "benign";
-      // }
-    var packedBag = $('#bagPacked').is(':checked');
-      // if (packedBag === true){
-      //   packedBag = "hopeless";
-      // }else{
-      //   packedBag = "hopefull";
-      // }
-    var nameOfItem0 = {item: $('#itemName0').val(), packed: $('#packed0').is(':checked'), important: $('#important0').is(':checked')};
-    var nameOfItem1 = {item: $('#itemName1').val(), packed: $('#packed1').is(':checked'), important: $('#important1').is(':checked')};
-    var nameOfItem2 = {item: $('#itemName2').val(), packed: $('#packed2').is(':checked'), important: $('#important2').is(':checked')};
-    var nameOfItem3 = {item: $('#itemName3').val(), packed: $('#packed3').is(':checked'), important: $('#important3').is(':checked')};
-    var nameOfItem4 = {item: $('#itemName4').val(), packed: $('#packed4').is(':checked'), important: $('#important4').is(':checked')};
+    var nameUpdateBag = $('#bagUpdateName').val();
+    var fullUpdateBag = $('#bagUpdateFull').is(':checked');
 
-    var contentsList = [nameOfItem0, nameOfItem1, nameOfItem2, nameOfItem3, nameOfItem4];
+    var packedUpdateBag = $('#bagUpdatePacked').is(':checked');
+
+    var nameOfUpdateItem0 = {item: $('#itemUpdateName0').val(), packed: $('#packedUpdate0').is(':checked'), important: $('#importantUpdate0').is(':checked')};
+    var nameOfUpdateItem1 = {item: $('#itemUpdateName1').val(), packed: $('#packedUpdate1').is(':checked'), important: $('#importantUpdate1').is(':checked')};
+    var nameOfUpdateItem2 = {item: $('#itemUpdateName2').val(), packed: $('#packedUpdate2').is(':checked'), important: $('#importantUpdate2').is(':checked')};
+    var nameOfUpdateItem3 = {item: $('#itemUpdateName3').val(), packed: $('#packedUpdate3').is(':checked'), important: $('#importantUpdate3').is(':checked')};
+    var nameOfUpdateItem4 = {item: $('#itemUpdateName4').val(), packed: $('#packedUpdate4').is(':checked'), important: $('#importantUpdate4').is(':checked')};
+
+    var contentsUpdateList = [nameOfUpdateItem0, nameOfUpdateItem1, nameOfUpdateItem2, nameOfUpdateItem3, nameOfUpdateItem4];
 
     $.ajax({
       method: 'PUT',
       url: '/api/bag/' + bagId,
-      data: {type: nameBag, full: fullBag, packed: packedBag, contents: contentsList},
+      data: {type: nameUpdateBag, full: fullUpdateBag, packed: packedUpdateBag, contents: contentsUpdateList},
       success: editBagSuccess
     });
 
