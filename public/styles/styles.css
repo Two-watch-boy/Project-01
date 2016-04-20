@@ -20,11 +20,13 @@ p{
 .space{
   height: 30px;
   border-radius: 5px;
-  background-color: rgba(215, 215, 215, 1);
+  background-color: rgba(250, 75, 75, .5);
   margin-bottom: 10px;
+  /*background-color: rgba(75, 250, 75, .5);*/
 }
 .space:hover{
-  background-color: rgba(200, 200, 200, 1);
+  background-color: rgba(225, 75, 75, .5);
+  /*background-color: rgba(75, 225, 75, .5);*/
 }
 .glyph{
   margin: 10px 0 -2px 0;
