@@ -66,11 +66,11 @@ $(document).ready(function() {
       if (($('#packed0').is(':checked') === false && $('#important0').is(':checked') === false) && $('#itemName0').val() === ""){
         nameOfItem0 = null;
       }
-      // if($('#packed0').is(':checked') === true){
-      //   var itemId = $(this).parents('.space').data("item-id");
-      //   console.log(";;;;;;;;;;;;;;;;;;;", itemId);
-      //   $(".itemId").css("background-color", "rgba(75, 250, 75, .5)");
-      // }
+      if($('#packed0').is(':checked') === true){
+        var itemId = $(this).parents('.space').data("item-id");
+        console.log(";;;;;;;;;;;;;;;;;;;", itemId);
+        $(".itemId").css("background-color", "rgba(75, 250, 75, .5)");
+      }
     var nameOfItem1 = {item: $('#itemName1').val(), packed: $('#packed1').is(':checked'), important: $('#important1').is(':checked')};
       if (($('#packed1').is(':checked') === false && $('#important1').is(':checked') === false) && $('#itemName1').val() === ""){
         nameOfItem1 = null;
