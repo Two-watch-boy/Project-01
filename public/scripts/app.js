@@ -78,9 +78,9 @@ $(document).ready(function() {
         nameOfItem3 = null;
       }
     var nameOfItem4 = {item: $('#itemName4').val(), packed: item4packed, important: item4important};
-    if ($('#packed4').is(':checked') === false && $('#important4').is(':checked') === false){
-      nameOfItem4 = null;
-    }
+      if ($('#packed4').is(':checked') === false && $('#important4').is(':checked') === false){
+        nameOfItem4 = null;
+      }
 
 
     var contentsList = [nameOfItem0, nameOfItem1, nameOfItem2, nameOfItem3, nameOfItem4];
