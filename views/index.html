@@ -123,7 +123,7 @@
               <li><input id="importantUpdate4" type="checkbox" name="name" value=""><label>Important?</label></li>
               <li><input id="packedUpdate4" type="checkbox" name="name" value=""><label>Packed?</label></li>
             </ul>
-          <button class= "modalInput editButton" id="meowUpdate" type="submit" name="button">Update</button></br>
+          <button class= "modalInput editButton" id="meowUpdate" type="button" onclick="handleEditBag()" name="button">Update</button></br>
 
 
           <!-- </form> -->
@@ -144,12 +144,12 @@
                 <img class="glyph"src="/images/glyphicons-342-briefcase.png">
                 <p>{{type}}</p>
                 <button type="button" class="btn btn-danger deleteButton">Delete</button>
-                <button type="button" class="btn btn-warning editButtonModal" data-toggle="modal" data-target=".bs-example-modal-sm1">Edit</button>
+                <button type="button" class="btn btn-warning editButtonModal" id="{{_id}}" onclick="setEditId()" data-toggle="modal" data-target=".bs-example-modal-sm1">Edit</button>
               </div>
             </div>
             <div class="row">
               {{#contents}}
-              <div class="col-xs-offset-4 col-sm-5 space" data-item-id="{{_id}}">{{item}}</div>
+              <div class="col-xs-offset-4 col-sm-5 space" id="{{_id}}">{{item}}</div>
               {{/contents}}
             </div>
           </div>

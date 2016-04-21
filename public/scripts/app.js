@@ -66,11 +66,11 @@ $(document).ready(function() {
       if (($('#packed0').is(':checked') === false && $('#important0').is(':checked') === false) && $('#itemName0').val() === ""){
         nameOfItem0 = null;
       }
-      if($('#packed0').is(':checked') === true){
-        var itemId = $(this).parents('.space').data("item-id");
-        console.log(";;;;;;;;;;;;;;;;;;;", itemId);
-        $(".itemId").css("background-color", "rgba(75, 250, 75, .5)");
-      }
+      // if($('#packed0').is(':checked') === true){
+      //   var itemId = $(this).parents('.space').data("item-id");
+      //   console.log(";;;;;;;;;;;;;;;;;;;", itemId);
+      //   $(".itemId").css("background-color", "rgba(75, 250, 75, .5)");
+      // }
     var nameOfItem1 = {item: $('#itemName1').val(), packed: $('#packed1').is(':checked'), important: $('#important1').is(':checked')};
       if (($('#packed1').is(':checked') === false && $('#important1').is(':checked') === false) && $('#itemName1').val() === ""){
         nameOfItem1 = null;
@@ -135,13 +135,22 @@ $(document).ready(function() {
     console.log("This is where the deleting magic happens!", deleteSuccess);
   }
 
+var editId = null;
+var setEditId = function(e){
+  console.log(event.target.id);
+  editId = event.target.id;
+  console.log("EDIT ID", editId);
+};
 
+  function handleEditBag(){
+    console.log("GOT TO EDIT");
 
-
-  function handleEditBag(e){
-    e.preventDefault();
-    var bagId = $(this).parents('.row.bag').data("bag-id");
+    // e.preventDefault();
+    // var bagId = $(this).parents('.row.bag').data("bag-id");
+    var bagId = editId;
+    console.log("THIS", $(this).parents('.row.bag'));
     var nameUpdateBag = $('#bagUpdateName').val();
+    console.log("NAME UPDATE BAG" , nameUpdateBag);
     var fullUpdateBag = $('#bagUpdateFull').is(':checked');
 
     var packedUpdateBag = $('#bagUpdatePacked').is(':checked');
@@ -153,14 +162,14 @@ $(document).ready(function() {
     var nameOfUpdateItem4 = {item: $('#itemUpdateName4').val(), packed: $('#packedUpdate4').is(':checked'), important: $('#importantUpdate4').is(':checked')};
 
     var contentsUpdateList = [nameOfUpdateItem0, nameOfUpdateItem1, nameOfUpdateItem2, nameOfUpdateItem3, nameOfUpdateItem4];
-
+console.log("I'm PUTTING!");
     $.ajax({
       method: 'PUT',
       url: '/api/bag/' + bagId,
       data: {type: nameUpdateBag, full: fullUpdateBag, packed: packedUpdateBag, contents: contentsUpdateList},
       success: editBagSuccess
     });
-
+    return false;
   }
 
   function editBagSuccess(editSuccess){

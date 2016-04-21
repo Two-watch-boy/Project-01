@@ -78,11 +78,18 @@ app.delete('/api/bag/:id', function (req, res) {
   });
 
 app.put('/api/bag/:id', function (req, res) {
+  console.log("reqqqq this shit ", req.body);
   var bagId = req.params.id;
+
+  console.log("SHOULD BE BAG ID:::", bagId);
 
   db.Bag.findOne({ _id: bagId }, function (err, foundBag) {
     // update the todos's attributes
     foundBag.task = req.body.task;
+    foundBag.type = req.body.type;
+    foundBag.full = req.body.full;
+    foundBag.packed = req.body.packed;
+    foundBag.contents = req.body.contents;
     foundBag.description = req.body.description;
 
     // save updated todo in db
