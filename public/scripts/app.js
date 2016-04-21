@@ -162,7 +162,7 @@ var setEditId = function(e){
     var nameOfUpdateItem4 = {item: $('#itemUpdateName4').val(), packed: $('#packedUpdate4').is(':checked'), important: $('#importantUpdate4').is(':checked')};
 
     var contentsUpdateList = [nameOfUpdateItem0, nameOfUpdateItem1, nameOfUpdateItem2, nameOfUpdateItem3, nameOfUpdateItem4];
-console.log("I'm PUTTING!");
+    console.log("I'm PUTTING!");
     $.ajax({
       method: 'PUT',
       url: '/api/bag/' + bagId,
@@ -174,4 +174,6 @@ console.log("I'm PUTTING!");
 
   function editBagSuccess(editSuccess){
     console.log("what have we here? oh! it's some edits", editSuccess);
+    window.location.reload(editSuccess);
+
   }
