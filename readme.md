@@ -1,5 +1,5 @@
 
-# App Name
+# Packing Prepared
 
 This is a basic travel app for tracking packed items.
 
