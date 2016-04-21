@@ -1,7 +1,7 @@
 
 # Packing Prepared
 
-This is a basic travel app for tracking bags for travel and the packed items in each.
+This is a basic travel app for tracking bags and the items packed in each.
 
 [https://stormy-refuge-94733.herokuapp.com/]()
 
